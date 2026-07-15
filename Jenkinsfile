@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        terraform 'terraform'
+    }
+
     stages {
         stage('Terraform Version') {
             steps {
@@ -12,6 +16,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 script {
+                    
                     sh 'terraform init'
                 }
             }
